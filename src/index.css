@@ -18,11 +18,15 @@ body {
 }
 
 button {
+  display: inline-block;
+  border: 1px solid black;
+  color: black;
+  text-align: center;
+  text-decoration: none;
   cursor: pointer;
 }
 
 button:active {
   background-color: #b7ebb7b8;
-  border: none;
   outline: none;
 }

@@ -1,11 +1,11 @@
-import { Abc } from "./Letters.styled";
-
 import React, { useState, useEffect, useRef } from "react";
 
 // data
 import { letters } from "../../data/letters";
 
-function Letters({ nameImg }) {
+import { Abc, WrittenLettersWrapper } from "./Letters.styled";
+
+function Letters({ nameImg, fullSkrin }) {
     const btnRef = useRef(null);
     // console.log(btnRef);
 
@@ -39,8 +39,7 @@ function Letters({ nameImg }) {
     const handleKeyDown = (event) => {
         setKeyPress(event.keyCode);
 
-        event.preventDefault();
-        event.target.blur();
+        // event.preventDefault();
 
         if (event.keyCode !== keySpase) {
             setSelectedLetter((prevSelectedLetters) => {
@@ -72,16 +71,16 @@ function Letters({ nameImg }) {
     return (
         <>
             {selectedLetter.length >= 1 ? (
-                <div>
-                    <p style={{ width: "100%", color: "#008000b8" }}>
+                <WrittenLettersWrapper>
+                    <p style={{ color: "#008000b8" }}>
                         {selectedLetter.join("")}
                     </p>
-                    <button onClick={resetActiveKey}>cler</button>
-                </div>
+                    <button onClick={resetActiveKey}>&#9668;</button>
+                </WrittenLettersWrapper>
             ) : (
-                <p style={{ width: "inherit" }}>{nameImg}</p>
+                <p>{nameImg}</p>
             )}
-            <Abc>
+            <Abc $isfullskrin={fullSkrin}>
                 {letters.map((e) =>
                     keyPress === e.keyCode ? (
                         <button

@@ -20,7 +20,7 @@ export const Img = styled.div`
     }
 
     @media screen and (max-width: 768px) {
-        height: 50%;
+        height: ${(props) => (props.$isfullskrin ? "0" : "50%")};
     }
 `;
 
@@ -39,7 +39,8 @@ export const ImgInfo = styled.div`
     }
 
     @media screen and (max-width: 768px) {
-        height: 50%;
+        height: ${(props) => (props.$isfullskrin ? "100%" : "50%")};
+
         padding: 5px;
 
         & p {

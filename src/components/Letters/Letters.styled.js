@@ -1,5 +1,18 @@
 import styled from "styled-components";
 
+export const WrittenLettersWrapper = styled.div`
+   display: flex;
+   justify-content: space-between;
+   & p {
+        display: block;
+        width: 85%;
+        overflow: hidden;
+    }
+   & button {
+        padding: 10px;
+    }
+`;
+
 export const Abc = styled.div`
     display: flex;
     flex-wrap: wrap;
@@ -8,9 +21,12 @@ export const Abc = styled.div`
     gap: 10px;
 
     & button {
-        width: 4vh;
-        height: 4vh;
+        width: ${(props) => (props.$isfullskrin ? "17vh" : "5vh")};
+        height: ${(props) => (props.$isfullskrin ? "5vh" : "5vh")};
+
         font-size: 3.2vh;
+        /* background-color: #04aa6d;  */
+        /* padding: 15px 32px; */
 
         overflow: hidden;
     }

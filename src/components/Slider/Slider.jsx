@@ -20,7 +20,8 @@ function Slider() {
     const [activImg, setActivImg] = useState(0);
     const swiperRef = useRef(null);
     const [swiperInstance, setSwiperInstance] = useState(null);
-    const [fullSkrin, setFullSkrin] = useState();
+    const [fullSkrin, setFullSkrin] = useState(false);
+console.log(fullSkrin);
 
     const handleKeyDown = useCallback(
         (event) => {
@@ -69,8 +70,11 @@ function Slider() {
                                 <img src={x.link} alt={x.name} />
                             </Img>
                             {activImg === x.id ? (
-                                <ImgInfo>
-                                    <Abc nameImg={x.name} />
+                                <ImgInfo $isfullskrin={fullSkrin}>
+                                    <Abc
+                                        nameImg={x.name}
+                                        fullSkrin={fullSkrin}
+                                    />
 
                                     <Player
                                         fullSkrin={fullSkrin}
@@ -82,7 +86,11 @@ function Slider() {
                                         onClick={() =>
                                             setFullSkrin(!fullSkrin)
                                         }>
-                                        {fullSkrin ? "-" : "+"}
+                                        {fullSkrin ? (
+                                            <span>&#9660;</span>
+                                        ) : (
+                                            <span>&#9650;</span>
+                                        )}
                                     </button>
                                 </ImgInfo>
                             ) : (
