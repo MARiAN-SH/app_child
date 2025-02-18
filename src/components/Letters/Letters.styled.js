@@ -21,8 +21,8 @@ export const Abc = styled.div`
     gap: 10px;
 
     & button {
-        width: ${(props) => (props.$isfullskrin ? "17vh" : "5vh")};
-        height: ${(props) => (props.$isfullskrin ? "5vh" : "5vh")};
+        width: ${(props) => (props.$isfullskrin ? "13vh" : "4.5vh")};
+        height: ${(props) => (props.$isfullskrin ? "5vh" : "4.5vh")};
 
         font-size: 3.2vh;
         /* background-color: #04aa6d;  */
