@@ -12,6 +12,8 @@ import mouse from "../img/mouse.png";
 import pig from "../img/pig.png";
 import rabbit from "../img/rabbit.png";
 import turkey from "../img/turkey.png";
+import frog from "../img/frog.png";
+import hedgehog from "../img/hedgehog.png";
 
 // MP3;
 import aquariumMp3 from "../audio/aquarium.mp3";
@@ -28,6 +30,7 @@ import mouseMp3 from "../audio/mouse.mp3";
 import pigMp3 from "../audio/pig.mp3";
 import rabbitMp3 from "../audio/rabbit.mp3";
 import turkeyMp3 from "../audio/turkey.mp3";
+import frogMp3 from "../audio/frog.mp3";
 
 export const imgArray = [
     { id: 0, name: "aquarium", link: aquarium, audio: aquariumMp3 },
@@ -44,4 +47,6 @@ export const imgArray = [
     { id: 11, name: "rabbit", link: rabbit, audio: rabbitMp3 },
     { id: 12, name: "turkey", link: turkey, audio: turkeyMp3 },
     { id: 13, name: "goat", link: goat, audio: goatMp3 },
+    { id: 14, name: "goat", link: frog, audio: frogMp3 },
+    { id: 15, name: "goat", link: hedgehog, audio: rabbitMp3 },
 ];
