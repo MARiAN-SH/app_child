@@ -31,6 +31,7 @@ import pigMp3 from "../audio/pig.mp3";
 import rabbitMp3 from "../audio/rabbit.mp3";
 import turkeyMp3 from "../audio/turkey.mp3";
 import frogMp3 from "../audio/frog.mp3";
+import hedgehogMp3 from "../audio/hedgehog.mp3";
 
 export const imgArray = [
     { id: 0, name: "aquarium", link: aquarium, audio: aquariumMp3 },
@@ -47,6 +48,6 @@ export const imgArray = [
     { id: 11, name: "rabbit", link: rabbit, audio: rabbitMp3 },
     { id: 12, name: "turkey", link: turkey, audio: turkeyMp3 },
     { id: 13, name: "goat", link: goat, audio: goatMp3 },
-    { id: 14, name: "goat", link: frog, audio: frogMp3 },
-    { id: 15, name: "goat", link: hedgehog, audio: rabbitMp3 },
+    { id: 14, name: "frog", link: frog, audio: frogMp3 },
+    { id: 15, name: "hedgehog", link: hedgehog, audio: hedgehogMp3 },
 ];
