@@ -52,5 +52,5 @@ export const imgArray = [
     { id: 13, name: "goat", link: goat, audio: goatMp3 },
     { id: 14, name: "frog", link: frog, audio: frogMp3 },
     { id: 15, name: "hedgehog", link: hedgehog, audio: hedgehogMp3 },
-    { id: 15, name: "mole", link: mole, audio: moleMp3 },
+    { id: 16, name: "mole", link: mole, audio: moleMp3 },
 ];
