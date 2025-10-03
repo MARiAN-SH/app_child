@@ -36,21 +36,174 @@ import hedgehogMp3 from "../audio/hedgehog.mp3";
 import moleMp3 from "../audio/mole.m4a";
 
 export const imgArray = [
-    { id: 0, name: "aquarium", link: aquarium, audio: aquariumMp3 },
-    { id: 1, name: "cat", link: cat, audio: catMp3 },
-    { id: 2, name: "chicken", link: chicken, audio: chickenMp3 },
-    { id: 3, name: "cow", link: cow, audio: cowMp3 },
-    { id: 4, name: "dog", link: dog, audio: dogMp3 },
-    { id: 5, name: "duck", link: duck, audio: duckMp3 },
-    { id: 6, name: "goose", link: goose, audio: gooseMp3 },
-    { id: 7, name: "guinea_pig", link: guinea_pig, audio: cowMp3 },
-    { id: 8, name: "horse", link: horse, audio: horseMp3 },
-    { id: 9, name: "mouse", link: mouse, audio: mouseMp3 },
-    { id: 10, name: "pig", link: pig, audio: pigMp3 },
-    { id: 11, name: "rabbit", link: rabbit, audio: rabbitMp3 },
-    { id: 12, name: "turkey", link: turkey, audio: turkeyMp3 },
-    { id: 13, name: "goat", link: goat, audio: goatMp3 },
-    { id: 14, name: "frog", link: frog, audio: frogMp3 },
-    { id: 15, name: "hedgehog", link: hedgehog, audio: hedgehogMp3 },
-    { id: 16, name: "mole", link: mole, audio: moleMp3 },
+    {
+        id: 0,
+        name: {
+            en: "aquarium",
+            cz: "akvárium",
+            ua: "акваріум",
+        },
+        link: aquarium,
+        audio: aquariumMp3,
+    },
+    {
+        id: 1,
+        name: {
+            en: "cat",
+            cz: "kočka",
+            ua: "Kіт",
+        },
+        link: cat,
+        audio: catMp3,
+    },
+    {
+        id: 2,
+        name: {
+            en: "chicken",
+            cz: "kuře",
+            ua: "курка",
+        },
+        link: chicken,
+        audio: chickenMp3,
+    },
+    {
+        id: 3,
+        name: {
+            en: "cow",
+            cz: "kráva",
+            ua: "корова",
+        },
+        link: cow,
+        audio: cowMp3,
+    },
+    {
+        id: 4,
+        name: {
+            en: "dog",
+            cz: "pes",
+            ua: "собака",
+        },
+        link: dog,
+        audio: dogMp3,
+    },
+    {
+        id: 5,
+        name: {
+            en: "duck",
+            cz: "kachna",
+            ua: "качка",
+        },
+        link: duck,
+        audio: duckMp3,
+    },
+    {
+        id: 6,
+        name: {
+            en: "goose",
+            cz: "husa",
+            ua: "гуска",
+        },
+        link: goose,
+        audio: gooseMp3,
+    },
+    {
+        id: 7,
+        name: {
+            en: "guinea_pig",
+            cz: "morče",
+            ua: "морська_свинка",
+        },
+        link: guinea_pig,
+        audio: cowMp3,
+    },
+    {
+        id: 8,
+        name: {
+            en: "horse",
+            cz: "kůň",
+            ua: "кінь",
+        },
+        link: horse,
+        audio: horseMp3,
+    },
+    {
+        id: 9,
+        name: {
+            en: "mouse",
+            cz: "myš",
+            ua: "миша",
+        },
+        link: mouse,
+        audio: mouseMp3,
+    },
+    {
+        id: 10,
+        name: {
+            en: "pig",
+            cz: "prase",
+            ua: "порося",
+        },
+        link: pig,
+        audio: pigMp3,
+    },
+    {
+        id: 11,
+        name: {
+            en: "rabbit",
+            cz: "králičí",
+            ua: "кролик",
+        },
+        link: rabbit,
+        audio: rabbitMp3,
+    },
+    {
+        id: 12,
+        name: {
+            en: "turkey",
+            cz: "krocak",
+            ua: "індичка",
+        },
+        link: turkey,
+        audio: turkeyMp3,
+    },
+    {
+        id: 13,
+        name: {
+            en: "goat",
+            cz: "koza",
+            ua: "коза",
+        },
+        link: goat,
+        audio: goatMp3,
+    },
+    {
+        id: 14,
+        name: {
+            en: "frog",
+            cz: "žába",
+            ua: "жаба",
+        },
+        link: frog,
+        audio: frogMp3,
+    },
+    {
+        id: 15,
+        name: {
+            en: "hedgehog",
+            cz: "ježek",
+            ua: "їжак",
+        },
+        link: hedgehog,
+        audio: hedgehogMp3,
+    },
+    {
+        id: 16,
+        name: {
+            en: "mole",
+            cz: "krtek",
+            ua: "кріт",
+        },
+        link: mole,
+        audio: moleMp3,
+    },
 ];
