@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { BtnWrapper, Btn } from "./Plater.styled";
 
-export default function Player({ audioMp3, id, activImg, fullSkrin }) {
+function Player({ audioMp3, id, activImg, className }) {
     const btnRef = useRef(null);
     const [keyPressCount, setKeyPressCount] = useState(0);
 
@@ -34,6 +33,7 @@ export default function Player({ audioMp3, id, activImg, fullSkrin }) {
             audio.currentTime = 0;
         }
     }, [audio]);
+
     // ===================================================
     const handleKey = useCallback(
         (event) => {
@@ -72,16 +72,12 @@ export default function Player({ audioMp3, id, activImg, fullSkrin }) {
     }, [audio, handleTimeUpdate, handleEnded, handleKey, stopAudioOnChangSlid]);
 
     return (
-        <BtnWrapper>
-            <Btn
-                $isfullskrin={fullSkrin}
-                ref={btnRef}
-                onClick={togglePlayPause}>
-                {isPlaying || keyPressCount
-                    ? `${currentTime !== 0 ? currentTime.toFixed(2) : ""} Stop`
-                    : "Listen"}
-            </Btn>
-            {/* <button onClick={(e) => console.log(e)}>+</button> */}
-        </BtnWrapper>
+        <button className={className} ref={btnRef} onClick={togglePlayPause}>
+            {isPlaying || keyPressCount
+                ? `${currentTime !== 0 ? currentTime.toFixed(2) : ""}`
+                : "Listen"}
+        </button>
     );
 }
+
+export default Player;
