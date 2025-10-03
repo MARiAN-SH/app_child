@@ -11,7 +11,7 @@ export const SliderWrapper = styled.div`
 `;
 
 export const Img = styled.div`
-    width: ${(props) => (props.$isfullskrin ? "0" : "inherit")};
+    width: ${(props) => (props.$isOpenKeyboard ? "0" : "inherit")};
     background-color: red;
 
     img {
@@ -20,7 +20,7 @@ export const Img = styled.div`
     }
 
     @media screen and (max-width: 768px) {
-        height: ${(props) => (props.$isfullskrin ? "0" : "50%")};
+        height: ${(props) => (props.$isOpenKeyboard ? "0" : "50%")};
     }
 `;
 
@@ -39,7 +39,7 @@ export const ImgInfo = styled.div`
     }
 
     @media screen and (max-width: 768px) {
-        height: ${(props) => (props.$isfullskrin ? "100%" : "50%")};
+        height: ${(props) => (props.$isOpenKeyboard ? "100%" : "50%")};
 
         padding: 5px;
 

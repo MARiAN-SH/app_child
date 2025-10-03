@@ -30,3 +30,6 @@ button:active {
   background-color: #b7ebb7b8;
   outline: none;
 }
+li{
+  list-style: none;
+}

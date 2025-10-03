@@ -1,13 +1,14 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
+
+// import Language from "../Language";
+
+import { Abc, WrittenLettersWrapper, Input } from "./Letters.styled";
 
 // data
 import { letters } from "../../data/letters";
 
-import { Abc, WrittenLettersWrapper } from "./Letters.styled";
-
-function Letters({ nameImg, fullSkrin }) {
+function Letters({ nameImg, language, openKeyboard }) {
     const btnRef = useRef(null);
-    // console.log(btnRef);
 
     const [keyPress, setKeyPress] = useState(0);
     const [selectedLetter, setSelectedLetter] = useState([]);
@@ -16,6 +17,7 @@ function Letters({ nameImg, fullSkrin }) {
 
     const addActiveKey = (e) => {
         setKeyPress(Number(e.target.id));
+
         if (keyPress !== keySpase) {
             setSelectedLetter((prevSelectedLetters) => {
                 const newSelectedLetters = [...prevSelectedLetters];
@@ -37,11 +39,11 @@ function Letters({ nameImg, fullSkrin }) {
     };
 
     const handleKeyDown = (event) => {
-        setKeyPress(event.keyCode);
+        setKeyPress(event.keyCode[language]);
 
         // event.preventDefault();
 
-        if (event.keyCode !== keySpase) {
+        if (event.keyCode[language] !== keySpase) {
             setSelectedLetter((prevSelectedLetters) => {
                 const newSelectedLetters = [...prevSelectedLetters];
 
@@ -70,40 +72,49 @@ function Letters({ nameImg, fullSkrin }) {
 
     return (
         <>
-            {selectedLetter.length >= 1 ? (
+            {(selectedLetter.length >= 1) & openKeyboard ? (
                 <WrittenLettersWrapper>
-                    <p style={{ color: "#008000b8" }}>
-                        {selectedLetter.join("")}
-                    </p>
+                    <Input
+                        value={selectedLetter.join("")}
+                        onChange={(e) => {
+                            setSelectedLetter(e.target.value);
+                        }}
+                    />
                     <button onClick={resetActiveKey}>&#9668;</button>
                 </WrittenLettersWrapper>
             ) : (
                 <p>{nameImg}</p>
             )}
-            <Abc $isfullskrin={fullSkrin}>
-                {letters.map((e) =>
-                    keyPress === e.keyCode ? (
-                        <button
-                            ref={btnRef}
-                            onClick={resetActiveKey}
-                            key={e.keyCode}
-                            style={{
-                                backgroundColor: "#008000b8",
-                                // cursor: selectedLetter ? "grab" : "pointer",
-                            }}>
-                            {e.name}
-                        </button>
-                    ) : (
-                        <button
-                            ref={btnRef}
-                            onClick={addActiveKey}
-                            key={e.keyCode}
-                            id={e.keyCode}>
-                            {e.name}
-                        </button>
-                    ),
-                )}
-            </Abc>
+            {!openKeyboard ? (
+                ""
+            ) : (
+                <Abc $isOpenKeyboard={openKeyboard}>
+                    {letters
+                        .filter((e) => e.name[language])
+                        .map((e) =>
+                            keyPress === e.keyCode[language] ? (
+                                <button
+                                    ref={btnRef}
+                                    onClick={resetActiveKey}
+                                    key={e.name[language]}
+                                    style={{
+                                        backgroundColor: "#008000b8",
+                                        // cursor: selectedLetter ? "grab" : "pointer",
+                                    }}>
+                                    {e.name[language]}
+                                </button>
+                            ) : (
+                                <button
+                                    ref={btnRef}
+                                    onClick={addActiveKey}
+                                    key={e.name[language]}
+                                    id={e.keyCode[language]}>
+                                    {e.name[language]}
+                                </button>
+                            ),
+                        )}
+                </Abc>
+            )}
         </>
     );
 }

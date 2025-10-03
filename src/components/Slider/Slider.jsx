@@ -1,14 +1,16 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
-
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+
+import Buttons from "../Buttons";
+import Letters from "../Letters";
+
+// data
+import { LanguageContext } from "../../App";
+import { imgArray } from "../../data/imgData";
+
 // import required modules
 import { EffectFade, Navigation, Pagination } from "swiper/modules";
 
-import Player from "../Player";
-import Abc from "../Letters";
-
-// data
-import { imgArray } from "../../data/imgData";
 // Import styles
 import { SliderWrapper, Img, ImgInfo } from "./Slider.styled";
 import "swiper/css";
@@ -17,29 +19,37 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 function Slider() {
-    const [activImg, setActivImg] = useState(0);
-    const swiperRef = useRef(null);
-    const [swiperInstance, setSwiperInstance] = useState(null);
-    const [fullSkrin, setFullSkrin] = useState(false);
-console.log(fullSkrin);
+    const [language] = React.useContext(LanguageContext);
 
-    const handleKeyDown = useCallback(
+    const [activImg, setActivImg] = React.useState(0);
+
+    const swiperRef = React.useRef(null);
+    const [swiperInstance, setSwiperInstance] = React.useState(null);
+    const [openKeyboard, setOpenKeyboard] = React.useState(false);
+
+    const handleKeyDown = React.useCallback(
         (event) => {
             if (swiperInstance) {
                 if (event.key === "ArrowRight") {
                     swiperInstance.slideNext();
                 } else if (event.key === "ArrowLeft") {
                     swiperInstance.slidePrev();
-                } else if (event.key === "d") {
-                    // Use 'd' to disable Swiper
-                    swiperInstance.disable();
                 }
+                // else if (event.key === "d") {
+                //     // Use 'd' to disable Swiper
+                //     swiperInstance.disable();
+                // }
+            }
+            if (!openKeyboard && event.key === "ArrowUp") {
+                setOpenKeyboard(!openKeyboard);
+            } else if (openKeyboard && event.key === "ArrowDown") {
+                setOpenKeyboard(!openKeyboard);
             }
         },
-        [swiperInstance],
+        [swiperInstance, openKeyboard],
     );
 
-    useEffect(() => {
+    React.useEffect(() => {
         if (swiperRef.current && !swiperInstance) {
             setSwiperInstance(swiperRef.current.swiper);
         }
@@ -66,35 +76,34 @@ console.log(fullSkrin);
                 return (
                     <SwiperSlide key={x.id}>
                         <SliderWrapper>
-                            <Img $isfullskrin={fullSkrin}>
-                                <img src={x.link} alt={x.name} />
+                            <Img $isOpenKeyboard={openKeyboard}>
+                                <img src={x.link} alt={x.name[language]} />
                             </Img>
-                            {activImg === x.id ? (
-                                <ImgInfo $isfullskrin={fullSkrin}>
-                                    <Abc
-                                        nameImg={x.name}
-                                        fullSkrin={fullSkrin}
-                                    />
 
-                                    <Player
-                                        fullSkrin={fullSkrin}
-                                        audioMp3={x.audio}
-                                        id={x.id}
-                                        activImg={activImg}
-                                    />
-                                    <button
-                                        onClick={() =>
-                                            setFullSkrin(!fullSkrin)
-                                        }>
-                                        {fullSkrin ? (
-                                            <span>&#9660;</span>
-                                        ) : (
-                                            <span>&#9650;</span>
-                                        )}
-                                    </button>
-                                </ImgInfo>
+                            {activImg === x.id ? (
+                                <>
+                                    <ImgInfo $isOpenKeyboard={openKeyboard}>
+                                        <Letters
+                                            nameImg={x.name[language]}
+                                            openKeyboard={openKeyboard}
+                                            language={language}
+                                        />
+
+                                        <Buttons
+                                            openKeyboard={openKeyboard}
+                                            // Player
+                                            audioMp3={x.audio}
+                                            id={x.id}
+                                            activImg={activImg}
+                                            // Open key
+                                            fn={() =>
+                                                setOpenKeyboard(!openKeyboard)
+                                            }
+                                        />
+                                    </ImgInfo>
+                                </>
                             ) : (
-                                <ImgInfo></ImgInfo>
+                                <ImgInfo />
                             )}
                         </SliderWrapper>
                     </SwiperSlide>
