@@ -39,9 +39,9 @@ function Letters({ nameImg, language, openKeyboard }) {
     };
 
     const handleKeyDown = (event) => {
-        setKeyPress(event.keyCode[language]);
+        setKeyPress(event.keyCode);
 
-        if (event.keyCode[language] !== keySpase) {
+        if (event.keyCode !== keySpase) {
             setSelectedLetter((prevSelectedLetters) => {
                 const newSelectedLetters = [...prevSelectedLetters];
 
