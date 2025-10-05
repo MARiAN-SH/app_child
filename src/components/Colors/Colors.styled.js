@@ -5,7 +5,7 @@ import styled from "styled-components";
 export const BlockColors = styled("div")`
     display: flex;
     max-width: 100%;
-    height: 100vh;
+    height: 100dvh;
     justify-content: space-between;
     align-content: center;
     flex-wrap: wrap;
