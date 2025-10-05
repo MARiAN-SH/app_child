@@ -27,7 +27,7 @@ export const Img = styled.div`
 export const ImgInfo = styled.div`
     width: 100%;
     height: 100%;
-    padding: 10px;
+    padding: 60px 10px 0;
 
     display: flex;
     flex-direction: column;

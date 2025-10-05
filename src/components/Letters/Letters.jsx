@@ -70,7 +70,7 @@ function Letters({ nameImg, language, openKeyboard }) {
 
     return (
         <>
-            {(selectedLetter.length >= 1) & openKeyboard ? (
+            {selectedLetter.length >= 1 && openKeyboard ? (
                 <WrittenLettersWrapper>
                     <Input
                         value={selectedLetter.join("")}
@@ -81,7 +81,7 @@ function Letters({ nameImg, language, openKeyboard }) {
                     <button onClick={resetActiveKey}>&#9668;</button>
                 </WrittenLettersWrapper>
             ) : (
-                <p>{nameImg}</p>
+                <p style={{ paddingTop: "60px" }}>{nameImg}</p>
             )}
             {!openKeyboard ? (
                 ""

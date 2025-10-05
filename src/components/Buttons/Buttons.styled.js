@@ -10,7 +10,7 @@ export const BtnWrapper = styled.div`
     justify-content: space-around;
     padding: 10px;
     @media screen and (max-width: 768px) {
-        padding: 5px;
+        padding: 0 5px 15px;
     }
 `;
 export const Btn = styled.button`

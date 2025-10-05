@@ -1,14 +1,25 @@
-import { Container, Box, BoxTitle, BoxText } from "../styles/HomeStyled";
+import { useContext } from "react";
 
-export default function Home({ boxData }) {
+import { LanguageContext } from "../App";
+
+// import { Container, Box, BoxTitle, BoxText } from "../styles/HomeStyled";
+export default function Home() {
+    const [language] = useContext(LanguageContext);
     return (
-        <Container>
-            {boxData.map((box) => (
-                <Box key={box.id} bgColor={box.bgColor}>
-                    <BoxTitle>{box.title}</BoxTitle>
-                    <BoxText>{box.text}</BoxText>
-                </Box>
-            ))}
-        </Container>
+        <div
+            style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                height: "100vh",
+            }}>
+            <h1 style={{ textAlign: "center" }}>
+                {language === "ua"
+                    ? "Вивчення слів"
+                    : language === "cz"
+                    ? "Učení slov"
+                    : "Word Learning"}
+            </h1>
+        </div>
     );
 }

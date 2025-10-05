@@ -1,10 +1,8 @@
 import React from "react";
-import { BtnWrapper, Btn, BtnPlayer, BtnLanguage } from "./Buttons.styled";
+import { BtnWrapper, Btn, BtnPlayer } from "./Buttons.styled";
 function Buttons({ audioMp3, id, activImg, openKeyboard, fn }) {
     return (
         <BtnWrapper>
-            <BtnLanguage />
-
             <BtnPlayer
                 $isOpenKeyboard={openKeyboard}
                 audioMp3={audioMp3}
@@ -13,7 +11,7 @@ function Buttons({ audioMp3, id, activImg, openKeyboard, fn }) {
             />
 
             {/* {write && <Btn $isOpenKeyboard={openKeyboard}>&#9668;</Btn>} */}
-            
+
             <Btn $isOpenKeyboard={openKeyboard} onClick={fn}>
                 {!openKeyboard ? "Клава відкрити" : "Клава закрити"}
             </Btn>

@@ -3,6 +3,8 @@ import styled from "styled-components";
 export const WrittenLettersWrapper = styled.div`
     display: flex;
     justify-content: space-between;
+    padding-top: 60px;
+
     & p {
         display: block;
         width: 85%;
